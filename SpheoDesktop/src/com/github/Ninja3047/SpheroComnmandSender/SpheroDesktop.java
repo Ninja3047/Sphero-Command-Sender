@@ -1,4 +1,4 @@
-package com.github.Ninja3047.SpheroDesktop;
+package com.github.Ninja3047.SpheroComnmandSender;
 
 import java.util.Scanner;
 
