@@ -57,12 +57,40 @@ public class Parser
 					System.out.println("Example: colour 256 0 0");
 				} catch(ArrayIndexOutOfBoundsException f)
 				{
+					System.err.println("Invalid Arguments");
 					System.out.println("Syntax: colour [red] [green] [blue]");
 					System.out.println("Where the colours are numbers from 0-256");
 					System.out.println("Example: colour 256 0 0");
-					System.err.println("Invalid Arguments");
 				}
 				break;
+			case "spin":
+				try
+				{
+					if(commands[1].toLowerCase().equals("left"))
+					{
+						robot.sendCommand( new SpinLeftCommand(Integer.parseInt(commands[2])));
+					} else if(commands[1].toLowerCase().equals("right"))
+					{
+						robot.sendCommand( new SpinRightCommand(Integer.parseInt(commands[2])));
+					} else
+					{
+						System.err.println("Invalid Arguments");
+						System.out.println("Syntax: spin [direction] [speed]");
+						System.out.println("Example: spin left 5");
+					}
+				} catch(NumberFormatException e)
+				{
+					System.err.println("Invalid Arguments");
+					System.out.println("Syntax: spin [direction] [speed]");
+					System.out.println("Example: spin left 5");
+				} catch(ArrayIndexOutOfBoundsException f)
+				{
+					System.err.println("Invalid Arguments");
+					System.out.println("Syntax: spin [direction] [speed]");
+					System.out.println("Example: spin left 5");
+				}
+				break;
+			
 		}
 	}
 }
