@@ -31,13 +31,7 @@ public class Parser
 				try
 				{
 					robot.sendCommand(new RGBLEDCommand(Integer.parseInt(commands[1]), Integer.parseInt(commands[2]), Integer.parseInt(commands[3])));
-				} catch(NumberFormatException e)
-				{
-					System.err.println("Invalid Arguments");
-					System.out.println("Syntax: color [red] [green] [blue]");
-					System.out.println("Where the colors are numbers from 0-256");
-					System.out.println("Example: color 256 0 0");
-				} catch(ArrayIndexOutOfBoundsException f)
+				} catch(Exception e)
 				{
 					System.err.println("Invalid Arguments");
 					System.out.println("Syntax: color [red] [green] [blue]");
@@ -49,13 +43,7 @@ public class Parser
 				try
 				{
 					robot.sendCommand(new RGBLEDCommand(Integer.parseInt(commands[1]), Integer.parseInt(commands[2]), Integer.parseInt(commands[3])));
-				} catch(NumberFormatException e)
-				{
-					System.err.println("Invalid Arguments");
-					System.out.println("Syntax: colour [red] [green] [blue]");
-					System.out.println("Where the colours are numbers from 0-256");
-					System.out.println("Example: colour 256 0 0");
-				} catch(ArrayIndexOutOfBoundsException f)
+				} catch(Exception e)
 				{
 					System.err.println("Invalid Arguments");
 					System.out.println("Syntax: colour [red] [green] [blue]");
@@ -78,12 +66,7 @@ public class Parser
 						System.out.println("Syntax: spin [direction] [speed]");
 						System.out.println("Example: spin left 5");
 					}
-				} catch(NumberFormatException e)
-				{
-					System.err.println("Invalid Arguments");
-					System.out.println("Syntax: spin [direction] [speed]");
-					System.out.println("Example: spin left 5");
-				} catch(ArrayIndexOutOfBoundsException f)
+				} catch(Exception e)
 				{
 					System.err.println("Invalid Arguments");
 					System.out.println("Syntax: spin [direction] [speed]");
