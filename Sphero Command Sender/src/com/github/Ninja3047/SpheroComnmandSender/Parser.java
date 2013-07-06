@@ -31,10 +31,13 @@ public class Parser
 				try
 				{
 					robot.sendCommand(new RGBLEDCommand(Integer.parseInt(commands[1]), Integer.parseInt(commands[2]), Integer.parseInt(commands[3])));
+				} catch(NullPointerException e)
+				{
+					System.err.println("No Bluetooth connected. ");
 				} catch(Exception e)
 				{
 					System.err.println("Invalid Arguments");
-					System.out.println("Syntax: color [red] [green] [blue]");
+					System.out.println("Syntax: color red green blue");
 					System.out.println("Where the colors are numbers from 0-256");
 					System.out.println("Example: color 256 0 0");
 				}
@@ -43,10 +46,13 @@ public class Parser
 				try
 				{
 					robot.sendCommand(new RGBLEDCommand(Integer.parseInt(commands[1]), Integer.parseInt(commands[2]), Integer.parseInt(commands[3])));
+				} catch(NullPointerException e)
+				{
+					System.err.println("No Bluetooth connected. ");
 				} catch(Exception e)
 				{
 					System.err.println("Invalid Arguments");
-					System.out.println("Syntax: colour [red] [green] [blue]");
+					System.out.println("Syntax: colour red green blue");
 					System.out.println("Where the colours are numbers from 0-256");
 					System.out.println("Example: colour 256 0 0");
 				}
@@ -63,17 +69,57 @@ public class Parser
 					} else
 					{
 						System.err.println("Invalid Arguments");
-						System.out.println("Syntax: spin [direction] [speed]");
+						System.out.println("Syntax: spin direction speed");
 						System.out.println("Example: spin left 5");
 					}
-				} catch(Exception e)
+				} catch (NullPointerException e)
+				{
+					System.err.println("No Bluetooth Connected. ");
+				}  catch(Exception e)
 				{
 					System.err.println("Invalid Arguments");
-					System.out.println("Syntax: spin [direction] [speed]");
+					System.out.println("Syntax: spin direction speed");
 					System.out.println("Example: spin left 5");
 				}
 				break;
-			
+			case "help":
+				if(commands.length == 2)
+				{
+					switch(commands[1])
+					{
+						case "color":
+						case "colour":
+							System.out.println("Syntax: colour red green blue");
+							System.out.println("Where the colours are numbers from 0-256");
+							System.out.println("Example: colour 256 0 0");
+							break;
+						case "spin":
+							System.out.println("Syntax: spin direction speed");
+							System.out.println("Example: spin left 5");
+							break;
+						case "help":
+							System.out.println("It appears you already know how to use help. ");
+							break;
+						default:
+							System.out.println("Syntax: help [command]");
+							System.out.println("Example: help color");
+							System.out.println("Commands: ");
+							System.out.println("color");
+							System.out.println("colour");
+							System.out.println("spin");
+							System.out.println("help");						
+					}
+				} else
+				{
+					System.out.println("Syntax: help [command]");
+					System.out.println("Example: help color");
+					System.out.println("Commands: ");
+					System.out.println("color");
+					System.out.println("colour");
+					System.out.println("spin");
+					System.out.println("help");
+				}
+				break;
 		}
 	}
 }
