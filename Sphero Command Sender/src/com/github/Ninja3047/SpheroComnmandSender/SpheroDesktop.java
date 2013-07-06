@@ -34,6 +34,7 @@ public class SpheroDesktop
 		    Parser parser = new Parser(r);
 			do
 			{
+				System.out.print(">> ");
 				input = keyboard.nextLine();
 				parser.parse(input);
 					
@@ -46,6 +47,9 @@ public class SpheroDesktop
 		catch (RobotBluetoothException e)
 		{
 			System.err.println("Robot Bluetooth Exception");
+		} catch (Exception e)
+		{
+			System.err.println("Other Error");
 		}
 		keyboard.close();
 	}
