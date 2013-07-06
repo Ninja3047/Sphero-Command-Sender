@@ -107,7 +107,8 @@ public class Parser
 							System.out.println("color");
 							System.out.println("colour");
 							System.out.println("spin");
-							System.out.println("help");						
+							System.out.println("help");
+							break;
 					}
 				} else
 				{
@@ -119,6 +120,10 @@ public class Parser
 					System.out.println("spin");
 					System.out.println("help");
 				}
+				break;
+			default:
+				System.out.println("Unknown Command!");
+				System.out.println("Type \"help\" to see all commands");
 				break;
 		}
 	}
